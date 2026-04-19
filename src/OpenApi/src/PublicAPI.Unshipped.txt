@@ -1,1 +1,19 @@
 #nullable enable
+Microsoft.AspNetCore.OpenApi.NamedService<TService>
+Microsoft.AspNetCore.OpenApi.NamedService<TService>.Name.get -> string!
+Microsoft.AspNetCore.OpenApi.NamedService<TService>.NamedService(string! name) -> void
+Microsoft.AspNetCore.OpenApi.OpenApiDocumentService
+Microsoft.AspNetCore.OpenApi.OpenApiDocumentService.GetOpenApiDocumentAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Microsoft.OpenApi.OpenApiDocument!>!
+Microsoft.AspNetCore.OpenApi.OpenApiDocumentService.OpenApiDocumentService(string! documentName, Microsoft.AspNetCore.Mvc.ApiExplorer.IApiDescriptionGroupCollectionProvider! apiDescriptionGroupCollectionProvider, Microsoft.Extensions.Hosting.IHostEnvironment! hostEnvironment, Microsoft.Extensions.Options.IOptionsMonitor<Microsoft.AspNetCore.OpenApi.OpenApiOptions!>! optionsMonitor, System.IServiceProvider! serviceProvider, Microsoft.AspNetCore.Hosting.Server.IServer? server = null) -> void
+Microsoft.AspNetCore.OpenApi.OpenApiOptions.DocumentName.set -> void
+Microsoft.AspNetCore.OpenApi.OpenApiSchemaService
+Microsoft.AspNetCore.OpenApi.OpenApiSchemaService.OpenApiSchemaService(string! documentName, Microsoft.Extensions.Options.IOptions<Microsoft.AspNetCore.Http.Json.JsonOptions!>! jsonOptions, Microsoft.Extensions.Options.IOptionsMonitor<Microsoft.AspNetCore.OpenApi.OpenApiOptions!>! optionsMonitor) -> void
+Microsoft.Extensions.ApiDescriptions.IDocumentProvider
+Microsoft.Extensions.ApiDescriptions.IDocumentProvider.GenerateAsync(string! documentName, System.IO.TextWriter! writer) -> System.Threading.Tasks.Task!
+Microsoft.Extensions.ApiDescriptions.IDocumentProvider.GenerateAsync(string! documentName, System.IO.TextWriter! writer, Microsoft.OpenApi.OpenApiSpecVersion openApiSpecVersion) -> System.Threading.Tasks.Task!
+Microsoft.Extensions.ApiDescriptions.IDocumentProvider.GetDocumentNames() -> System.Collections.Generic.IEnumerable<string!>!
+Microsoft.Extensions.ApiDescriptions.OpenApiDocumentProvider
+Microsoft.Extensions.ApiDescriptions.OpenApiDocumentProvider.GenerateAsync(string! documentName, System.IO.TextWriter! writer) -> System.Threading.Tasks.Task!
+Microsoft.Extensions.ApiDescriptions.OpenApiDocumentProvider.GenerateAsync(string! documentName, System.IO.TextWriter! writer, Microsoft.OpenApi.OpenApiSpecVersion openApiSpecVersion) -> System.Threading.Tasks.Task!
+Microsoft.Extensions.ApiDescriptions.OpenApiDocumentProvider.GetDocumentNames() -> System.Collections.Generic.IEnumerable<string!>!
+Microsoft.Extensions.ApiDescriptions.OpenApiDocumentProvider.OpenApiDocumentProvider(System.IServiceProvider! serviceProvider) -> void

@@ -24,7 +24,8 @@ namespace Microsoft.AspNetCore.OpenApi;
 /// an OpenAPI document. In particular, this is the API that is used to
 /// interact with the JSON schemas that are managed by a given OpenAPI document.
 /// </summary>
-internal sealed class OpenApiSchemaService(
+[EditorBrowsable(EditorBrowsableState.Never)]
+public sealed class OpenApiSchemaService(
     [ServiceKey] string documentName,
     IOptions<JsonOptions> jsonOptions,
     IOptionsMonitor<OpenApiOptions> optionsMonitor)

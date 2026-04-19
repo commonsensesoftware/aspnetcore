@@ -30,7 +30,18 @@ using Microsoft.Net.Http.Headers;
 
 namespace Microsoft.AspNetCore.OpenApi;
 
-internal sealed class OpenApiDocumentService(
+/// <summary>
+/// Represents a provider for OpenAPI documents that can be used by consumers to
+/// retrieve generated OpenAPI documents at runtime.
+/// </summary>
+/// <param name="documentName">The name of the OpenAPI document.</param>
+/// <param name="apiDescriptionGroupCollectionProvider">The provider for API description groups.</param>
+/// <param name="hostEnvironment">The hosting environment.</param>
+/// <param name="optionsMonitor">The options monitor for OpenAPI options.</param>
+/// <param name="serviceProvider">The service provider.</param>
+/// <param name="server">The optional server instance.</param>
+[EditorBrowsable(EditorBrowsableState.Never)]
+public sealed class OpenApiDocumentService(
     [ServiceKey] string documentName,
     IApiDescriptionGroupCollectionProvider apiDescriptionGroupCollectionProvider,
     IHostEnvironment hostEnvironment,
@@ -55,7 +66,7 @@ internal sealed class OpenApiDocumentService(
     internal bool TryGetCachedOperationTransformerContext(string descriptionId, [NotNullWhen(true)] out OpenApiOperationTransformerContext? context)
         => _operationTransformerContextCache.TryGetValue(descriptionId, out context);
 
-    public async Task<OpenApiDocument> GetOpenApiDocumentAsync(IServiceProvider scopedServiceProvider, HttpRequest? httpRequest = null, CancellationToken cancellationToken = default)
+    internal async Task<OpenApiDocument> GetOpenApiDocumentAsync(IServiceProvider scopedServiceProvider, HttpRequest? httpRequest = null, CancellationToken cancellationToken = default)
     {
         // Schema and operation transformers are scoped per-request and can be
         // pre-allocated to hold the same number of transformers as the associated

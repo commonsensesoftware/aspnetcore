@@ -1,6 +1,7 @@
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization.Metadata;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
@@ -40,7 +41,13 @@ public sealed class OpenApiOptions
     /// <summary>
     /// The name of the OpenAPI document this <see cref="OpenApiOptions"/> instance is associated with.
     /// </summary>
-    public string DocumentName { get; internal set; } = OpenApiConstants.DefaultDocumentName;
+    public string DocumentName
+    {
+        get => field ?? OpenApiConstants.DefaultDocumentName;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        set;
+    }
 
     /// <summary>
     /// A delegate to determine whether a given <see cref="ApiDescription"/> should be included in the given OpenAPI document.

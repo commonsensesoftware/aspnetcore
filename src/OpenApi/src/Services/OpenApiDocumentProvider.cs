@@ -1,10 +1,11 @@
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
+using System.ComponentModel;
+using System.Linq;
 using Microsoft.AspNetCore.OpenApi;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using System.Linq;
 
 namespace Microsoft.Extensions.ApiDescriptions;
 
@@ -12,7 +13,8 @@ namespace Microsoft.Extensions.ApiDescriptions;
 /// Provides an implementation of <see cref="IDocumentProvider"/> to use for build-time generation of OpenAPI documents.
 /// </summary>
 /// <param name="serviceProvider">The <see cref="IServiceProvider"/> to use.</param>
-internal sealed class OpenApiDocumentProvider(IServiceProvider serviceProvider) : IDocumentProvider
+[EditorBrowsable(EditorBrowsableState.Never)]
+public sealed class OpenApiDocumentProvider(IServiceProvider serviceProvider) : IDocumentProvider
 {
     /// <summary>
     /// Serializes the OpenAPI document associated with a given document name to
